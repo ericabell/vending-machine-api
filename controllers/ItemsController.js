@@ -44,10 +44,46 @@ function getAllItems() {
   return p;
 }
 
+function findById(id) {
+  let p = new Promise( (resolve, reject) => {
+    Item.findById(id)
+      .then( (doc) => {
+        resolve({ status: 'succcess', data: doc})
+      })
+      .catch( (err) => {
+        reject(err);
+      })
+  })
+
+  return p;
+}
+
+function decreaseInventoryForItem(id, quantity) {
+  let p = new Promise( (resolve, reject) => {
+    Item.findById(id)
+      .then( (doc) => {
+        console.log(`Found item for decrease: ${doc}`)
+        // decrease quantity of item
+        doc.quantity = doc.quantity - quantity;
+        doc.save()
+          .then( (doc) => {
+            resolve(doc);
+          })
+          .catch( (err) => {
+            reject(err)
+          })
+      })
+  })
+
+  return p;
+}
+
 let ItemsController = {
   addItem: addItem,
   deleteAllItems: deleteAllItems,
   getAllItems: getAllItems,
+  findById: findById,
+  decreaseInventoryForItem: decreaseInventoryForItem
 }
 
 module.exports = ItemsController;
