@@ -55,6 +55,10 @@ router.get('/vendor/purchases', function(req, res, next) {
 
 router.get('/vendor/money', function( req, res, next) {
   // get total amount of money accepted by machine
+  PurchasesController.getTotalMoney()
+    .then( (docs) => {
+      res.json(docs);
+    })
 });
 
 router.post('/vendor/items', function(req, res, next) {
@@ -78,6 +82,12 @@ router.post('/vendor/items', function(req, res, next) {
 
 router.put('/vendor/items/:itemId', function(req, res, next) {
   // update item quantity
+  let quantity = req.body.quantity;
+
+  ItemsController.updateQuantity(req.params.itemId, quantity)
+    .then( (doc) => {
+      res.json(doc);
+    });
 })
 
 module.exports = router;
