@@ -20,7 +20,7 @@ function deleteAllItems() {
   let p = new Promise( (resolve, reject) => {
     Item.deleteMany()
       .then( (doc) => {
-        resolve(doc);
+        resolve({status: 'success', data: doc});
       })
       .catch( (err) => {
         reject(err);

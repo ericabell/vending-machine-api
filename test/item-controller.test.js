@@ -52,4 +52,16 @@ describe('Items Controller Tests', () => {
         })
     })
 
+    test("Delete All Items", function(done) {
+      return ItemsController.deleteAllItems()
+        .then( (result) => {
+          expect(result.status).toBe('success');
+          expect(result.data.result.ok).toBe(1);
+          done();
+        })
+        .catch( (err) => {
+          throw err;
+        })
+    })
+
 })
