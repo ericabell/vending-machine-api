@@ -18,9 +18,23 @@ function addPurchase (newPurchase) {
 }
 
 
+function getAllPurchases() {
+  let p = new Promise( (resolve, reject) => {
+    Purchase.find({})
+      .then( (docs) => {
+        resolve({status: 'success', data: docs});
+      })
+      .catch( (err) => {
+        reject(err);
+      })
+  })
+
+  return p;
+}
+
 let PurchasesController = {
   addPurchase: addPurchase,
-
+  getAllPurchases: getAllPurchases,
 }
 
 module.exports = PurchasesController;

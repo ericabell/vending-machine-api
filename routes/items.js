@@ -48,7 +48,8 @@ router.get('/vendor/purchases', function(req, res, next) {
   // get a list of all purchases
   PurchasesController.getAllPurchases()
     .then( (docs) => {
-      res.json({status: 'success', data: docs});
+      console.log(docs);
+      res.json(docs);
     })
 });
 
