@@ -67,7 +67,7 @@ function decreaseInventoryForItem(id, quantity) {
         doc.quantity = doc.quantity - quantity;
         doc.save()
           .then( (doc) => {
-            resolve(doc);
+            resolve({status: 'success', data: doc});
           })
           .catch( (err) => {
             reject(err)
@@ -78,11 +78,13 @@ function decreaseInventoryForItem(id, quantity) {
   return p;
 }
 
-function updateQuantity(id, quantity) {
+function updateItem(id, quantity, description, cost) {
   let p = new Promise( (resolve, reject) => {
     Item.findById(id)
       .then( (doc) => {
         doc.quantity = quantity;
+        doc.description = description;
+        doc.cost = cost;
         doc.save()
         .then( (doc) => {
           resolve(doc);
@@ -102,7 +104,7 @@ let ItemsController = {
   getAllItems: getAllItems,
   findById: findById,
   decreaseInventoryForItem: decreaseInventoryForItem,
-  updateQuantity: updateQuantity
+  updateItem: updateItem
 }
 
 module.exports = ItemsController;

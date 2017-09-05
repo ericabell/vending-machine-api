@@ -83,8 +83,10 @@ router.post('/vendor/items', function(req, res, next) {
 router.put('/vendor/items/:itemId', function(req, res, next) {
   // update item quantity
   let quantity = req.body.quantity;
+  let description = req.body.description;
+  let cost = req.body.cost;
 
-  ItemsController.updateQuantity(req.params.itemId, quantity)
+  ItemsController.updateItem(req.params.itemId, quantity, description, cost)
     .then( (doc) => {
       res.json(doc);
     });
