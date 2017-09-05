@@ -29,10 +29,10 @@ describe('Items Controller Tests', () => {
                               cost: cost,
                               quantity: quantity
                             })
-        .then( (data) => {
-          expect(data.description === description).toBeTruthy();
-          expect(data.cost === cost).toBeTruthy();
-          expect(data.quantity === quantity).toBeTruthy();
+        .then( (result) => {
+          expect(result.data.description === description).toBeTruthy();
+          expect(result.data.cost === cost).toBeTruthy();
+          expect(result.data.quantity === quantity).toBeTruthy();
           done();
         })
         .catch( (err) => {
@@ -42,12 +42,14 @@ describe('Items Controller Tests', () => {
 
     test("Get List of All Items", function(done) {
       return ItemsController.getAllItems()
-        .then( (data) => {
-          expect(data).toBeTruthy();
+        .then( (result) => {
+          expect(result.status === 'success').toBeTruthy();
+          expect(result.data.length > 0);
           done();
         })
         .catch( (err) => {
           throw err;
         })
     })
+
 })

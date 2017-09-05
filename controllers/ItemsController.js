@@ -6,7 +6,7 @@ function addItem (newItem) {
   let p = new Promise( (resolve, reject) => {
     Item.create(newItem)
       .then( (doc) => {
-        resolve(doc);
+        resolve({status: 'success', data: doc});
       })
       .catch( (err) => {
         reject(err);
@@ -34,7 +34,7 @@ function getAllItems() {
   let p = new Promise( (resolve, reject) => {
     Item.find({})
       .then( (docs) => {
-        resolve(docs);
+        resolve({ status: 'success', data: docs });
       })
       .catch( (err) => {
         reject(err);
