@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 
 var items = require('./routes/items');
 
-let url='mongodb://localhost:27017/code-snippet-manager-project';
+let url='mongodb://localhost:27017/vending-machine-project';
 mongoose.connect(url,
                  {useMongoClient: true},
                  (err)=> {
