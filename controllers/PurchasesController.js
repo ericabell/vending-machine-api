@@ -33,16 +33,19 @@ function getAllPurchases() {
 }
 
 function getTotalMoney() {
+  console.log(`In getTotalMoney`);
   let p = new Promise( (resolve, reject) => {
-    Purchase.aggregate(
-      {$match: {}},
-      {$sum: cost}
-    )
-    .then( (doc) => {
-      console.log(`sum result: doc`);
-      resolve({status: 'success', data: doc});
+    Purchase.find({})
+    .then( (docs) => {
+      let total = 0;
+      docs.forEach( (doc) => {
+        total += doc.cost;
+      })
+      console.log(`sum result: total`);
+      resolve({status: 'success', data: total});
     })
     .catch( (err) => {
+      console.log(err);
       reject(err);
     })
   })
