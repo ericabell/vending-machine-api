@@ -30,10 +30,24 @@ function deleteAllItems() {
   return p;
 }
 
+function getAllItems() {
+  let p = new Promise( (resolve, reject) => {
+    Item.find({})
+      .then( (docs) => {
+        resolve(docs);
+      })
+      .catch( (err) => {
+        reject(err);
+      })
+  })
+
+  return p;
+}
+
 let ItemsController = {
   addItem: addItem,
   deleteAllItems: deleteAllItems,
-
+  getAllItems: getAllItems,
 }
 
 module.exports = ItemsController;

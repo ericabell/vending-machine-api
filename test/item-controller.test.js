@@ -40,7 +40,14 @@ describe('Items Controller Tests', () => {
         })
     });
 
-    // test("Get List of All Items", function(done) {
-    //
-    // })
+    test("Get List of All Items", function(done) {
+      return ItemsController.getAllItems()
+        .then( (data) => {
+          expect(data).toBeTruthy();
+          done();
+        })
+        .catch( (err) => {
+          throw err;
+        })
+    })
 })
