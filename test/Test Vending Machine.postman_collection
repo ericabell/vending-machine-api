@@ -1,0 +1,122 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Test Vending Machine",
+		"_postman_id": "84232000-afbc-049b-a77c-5e1dc2685ba7",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:3000/api/customer/items",
+			"request": {
+				"url": "localhost:3000/api/customer/items",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/customer/items/59aee4a5146edd42ce224ada/purchases",
+			"request": {
+				"url": "localhost:3000/api/customer/items/59aee4a5146edd42ce224ada/purchases",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"quantity\": 4}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/vendor/purchases",
+			"request": {
+				"url": "localhost:3000/api/vendor/purchases",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"quantity\": 4}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/vendor/money",
+			"request": {
+				"url": "localhost:3000/api/vendor/money",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"quantity\": 4}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/vendor/items",
+			"request": {
+				"url": "localhost:3000/api/vendor/items",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"description\": \"water bottle\", \"cost\":20, \"quantity\":10}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/api/vendor/items/59aee4a5146edd42ce224ada",
+			"request": {
+				"url": "localhost:3000/api/vendor/items/59aee4a5146edd42ce224ada",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"quantity\": 400}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
